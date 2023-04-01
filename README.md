@@ -124,13 +124,13 @@ sudo systemctl status nginx
 ####              └─22533 nginx: worker process
 
 
-### Aprire il firewall per consentire il traffico HTTP e HTTPS:
-### (su aws creare regole di entrata nei gruppi di sicurezza)
+##### Aprire il firewall per consentire il traffico HTTP e HTTPS:
+##### (su aws creare regole di entrata nei gruppi di sicurezza)
 ``` bash
 sudo ufw allow 'Nginx Full'
 ```
-### Questo consentirà il traffico sulla porta 80 per HTTP e sulla porta 443 per HTTPS.
+##### Questo consentirà il traffico sulla porta 80 per HTTP e sulla porta 443 per HTTPS.
 
-### Verificare che Nginx risponda correttamente al traffico HTTP e HTTPS visitando l'indirizzo IP del tuo server o il nome di dominio associato. 
-### Ad esempio, se l'indirizzo IP del tuo server è 1.2.3.4, puoi digitare http://1.2.3.4 o https://1.2.3.4 nella barra degli indirizzi del tuo browser. 
-### Dovresti vedere la pagina predefinita di Nginx.
+##### Verificare che Nginx risponda correttamente al traffico HTTP e HTTPS visitando l'indirizzo IP del tuo server o il nome di dominio associato. 
+##### Ad esempio, se l'indirizzo IP del tuo server è 1.2.3.4, puoi digitare http://1.2.3.4 o https://1.2.3.4 nella barra degli indirizzi del tuo browser. 
+##### Dovresti vedere la pagina predefinita di Nginx.
