@@ -109,7 +109,7 @@ sudo apt-get install nginx
 sudo systemctl status nginx
 ```
 
-##### Se Nginx è in esecuzione, dovresti vedere un output simile al seguente:
+#### Se Nginx è in esecuzione, dovresti vedere un output simile al seguente:
 
  ● nginx.service - A high performance web server and a reverse proxy server
       Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
@@ -124,8 +124,8 @@ sudo systemctl status nginx
               └─22533 nginx: worker process
 
 
-##### Aprire il firewall per consentire il traffico HTTP e HTTPS:
-##### (su aws creare regole di entrata nei gruppi di sicurezza)
+#### Aprire il firewall per consentire il traffico HTTP e HTTPS:
+### (su aws creare regole di entrata nei gruppi di sicurezza)
 ``` bash
 sudo ufw allow 'Nginx Full'
 ```
