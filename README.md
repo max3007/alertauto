@@ -124,7 +124,7 @@ sudo systemctl status nginx
               └─22533 nginx: worker process
 
 
-##### Aprire il firewall per consentire il traffico HTTP e HTTPS:
+#### Aprire il firewall per consentire il traffico HTTP e HTTPS:
 ##### (su aws creare regole di entrata nei gruppi di sicurezza)
 ``` bash
 sudo ufw allow 'Nginx Full'
