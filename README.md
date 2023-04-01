@@ -125,7 +125,7 @@ sudo systemctl status nginx
 
 
 #### Aprire il firewall per consentire il traffico HTTP e HTTPS:
-### (su aws creare regole di entrata nei gruppi di sicurezza)
+#### (su aws creare regole di entrata nei gruppi di sicurezza)
 ``` bash
 sudo ufw allow 'Nginx Full'
 ```
