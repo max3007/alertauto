@@ -50,12 +50,6 @@
         </a>
         <ul aria-expanded="false">
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'auto:lista_auto' %}">Lista Auto</a></li>
-          <li><a href="{% url 'auto:crea_auto' %}">Inserimento Auto</a></li>
-          <li><a href="{% url 'auto:lista_documento_auto' %}">Documenti Auto</a></li>
-          {% if request.user.is_superuser %}
-          <li><a href="{% url 'auto:periodic_tasks' %}">Lista Tasks</a></li>
-          {% endif %}
         </ul>
 
       </li>

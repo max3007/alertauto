@@ -83,7 +83,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "core.common",
     "core.users",
-    "core.auto",
+
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -151,7 +151,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # controllo autenticazione e proprietario auto
     'core.common.middleware.AuthenticationMiddleware',
-    'core.auto.middleware.OwnerCheckMiddleware'
+
 ]
 
 # STORAGES
@@ -232,10 +232,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "core.users.context_processors.allauth_settings",
-                # modelli globali
-                # 'core.auto.context_processors.documenti_context_processor',
-                'core.auto.context_processors.documenti_scaduti_context_processor',
-                'core.auto.context_processors.auto_context_processor',
+
             ],
         },
     }
