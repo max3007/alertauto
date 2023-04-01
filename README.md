@@ -97,16 +97,17 @@ See detailed [cookiecutter-django Docker documentation](http://cookiecutter-djan
 ## Installare Nginx:
 ### Aggiornare la lista dei pacchetti:
 
+``` bash
 sudo apt-get update
-
+```
 ### Installare Nginx:
-
+``` bash
 sudo apt-get install nginx
-
+```
 ### Verificare che Nginx sia stato installato correttamente:
-
+``` bash
 sudo systemctl status nginx
-
+```
 
 ### Se Nginx è in esecuzione, dovresti vedere un output simile al seguente:
 
@@ -125,9 +126,9 @@ sudo systemctl status nginx
 
 ### Aprire il firewall per consentire il traffico HTTP e HTTPS:
 ### (su aws creare regole di entrata nei gruppi di sicurezza)
-
+``` bash
 sudo ufw allow 'Nginx Full'
-
+```
 ### Questo consentirà il traffico sulla porta 80 per HTTP e sulla porta 443 per HTTPS.
 
 ### Verificare che Nginx risponda correttamente al traffico HTTP e HTTPS visitando l'indirizzo IP del tuo server o il nome di dominio associato. 
