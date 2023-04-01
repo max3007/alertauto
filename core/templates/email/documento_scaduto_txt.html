@@ -1,0 +1,9 @@
+<h1>ALERTAUTO</h1>
+<h1>Il seguente documento è scaduto:</h1>
+<p><strong>Tipo documento:</strong> {{ documento.nome }}</p>
+<p><strong>Auto:</strong> {{ documento.auto }}</p>
+<p><strong>Data scadenza:</strong> {{ documento.data_scadenza }}</p>
+{% if documento.file %}
+<p>Il file del documento è allegato.</p>
+{% endif %}
+<p>Per favore, provvedere al rinnovo del documento.</p>

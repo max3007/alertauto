@@ -1,0 +1,25 @@
+{% load static i18n %}
+<div class="border p-2 rounded">
+  {% if widget.value.url %}
+  <div class="m-2">
+    <a href="{{ widget.value.url }}" target="_blank" rel="noopener noreferrer">
+      <p><i class="fa fa-file me-2"></i>File Allegato</p>
+    </a>
+  </div>
+  {% endif %}
+
+  {% if widget.is_initial %}
+  {% if not widget.required %}
+  <div class="form-check custom-checkbox checkbox-danger">
+    <input type="checkbox" class="form-check-input" id="{{ widget.checkbox_id }}"
+      name="{{ widget.checkbox_name }}{% if widget.attrs.disabled %} disabled{% endif %}">
+    <label class="form-check-label" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+  </div>
+  {% endif %}
+  {% endif %}
+
+  <input custom-input-file type="{{ widget.type }}" name="{{ widget.name }}" id="{{ widget.id }}"
+    accept="image/png, image/jpeg, application/pdf" {% include "django/forms/widgets/attrs.html" %}>
+  <div id="error"></div>
+
+</div>

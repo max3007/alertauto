@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}User: {{ user.username }}{% endblock %}
+
+
+{% block content %}
+<div class="card">
+  <card class="card-body">
+
+{% if object == request.user %}
+<!-- Action buttons -->
+
+                    <div class="col-lg-12">
+                        <div class="profile card card-body px-3 pt-3 pb-0">
+                            <div class="profile-head">
+                                <div class="photo-content">
+                                    <div class="cover-photo-profilo rounded"></div>
+                                </div>
+                                <div class="profile-info">
+									<div class="profile-photo">
+                  <img src="{% if request.user.avatar %}{{request.user.avatar.url}} {% else %}{% static 'images/users/placeholder.png' %}{% endif %}" 
+              class="img-fluid rounded-circle" alt="">
+									</div>
+									<div class="profile-details">
+                    <div class="profile-name px-3 pt-2">
+                      <p>Nome</p>
+											<h4 class="text-primary mb-0">{{user.name}}</h4>
+											
+										</div>
+										<div class="profile-name px-3 pt-2">
+                      <p>Username</p>
+											<h4 class="text-primary mb-0">{{user.username}}</h4>
+											
+										</div>
+										<div class="profile-email px-2 pt-2">
+                      <p>Email Principale</p>
+											<h4 class="text-muted mb-0">{{user.email}}</h4>
+											
+										</div>
+										<div class="dropdown ms-auto">
+              <a href="#" class="btn btn-primary light sharp" data-bs-toggle="dropdown" aria-expanded="true"><svg
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
+                  height="18px" viewBox="0 0 24 24" version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect x="0" y="0" width="24" height="24"></rect>
+                    <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                    <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                    <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                  </g>
+                </svg></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li class="dropdown-item">
+                  <a  href="{% url 'users:update' %}">
+                    <i class="fa fa-user-circle text-primary me-2"></i> Aggiorna Informazioni</li>
+                  </a>
+                <li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Gestione Email</li>
+                <li class="dropdown-item"><i class="fa fa-plus text-primary me-2"></i> Cambia Password</li>
+              </ul>
+            </div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+<div class="row">
+
+  <div class="col-sm-12">
+    <a class="btn btn-primary" href="{% url 'users:update' %}" role="button">Aggiorna</a>
+    <a class="btn btn-primary" href="{% url 'account_email' %}" role="button">Gestisci E-Mail</a>
+    <a class="btn btn-primary" href="{% url 'account_change_password' %}" role="button">Cambia Password</a>
+    <!-- Your Stuff: Custom user template urls -->
+  </div>
+
+</div>
+<!-- End Action buttons -->
+{% endif %}
+
+
+  </card>
+</div>
+{% endblock content %}

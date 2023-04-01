@@ -1,0 +1,50 @@
+{% load static i18n %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}M2 Gestione{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestionale Aziendale">
+  <meta name="author" content="Max">
+
+  <link rel="icon" href="{% static 'images/favicon/favicon.ico' %}">
+
+  {% block css %}
+	<link href="{% static 'css/nice-select.css' %}" rel="stylesheet">
+
+  <!-- Boostrap 5.1 ================================================== -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- Boostrap 5.1 ================================================== -->
+  {% endblock %}
+
+  {% block extra_css %}{% endblock extra_css %}
+
+  <!-- javascript ================================================== -->
+  {# Placed at the top of the document so pages load faster with defer #}
+  {% block javascript %}
+
+  <!-- Required vendors -->
+  <!-- ! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors |-->
+  <script defer src="{% static 'js/global.min.js' %}"></script>
+  <!-- ! jQuery v3.6.0 | (c) OpenJS Foundation and other contributors |-->
+  <script defer src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+
+  <script defer src="{% static 'js/custom.min.js' %}"></script>
+  <script defer src="{% static 'js/dlabnav-init.js' %}"></script>
+  <!--<script defer src="{% static 'js/styleSwitcher.js' %}"></script>-->
+
+  {% endblock javascript %}
+
+  {% block extra_javascript %}{% endblock extra_javascript %}
+
+</head>
+
+<body class="vh-100">
+  {% block content %}{% endblock content %}
+</body>
+
+</html>

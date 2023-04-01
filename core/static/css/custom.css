@@ -1,0 +1,238 @@
+@media only screen and (max-width: 1400px) {
+    .nav-header {
+      height: 5.5rem;
+      width: 17rem; } }
+  .nav-header .brand-logo {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.125rem;
+    color: #fff;
+    text-decoration: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 700; }
+    @media only screen and (max-width: 1400px) {
+      .nav-header .brand-logo {
+        padding-left: 20px;
+        padding-right: 20px; } }
+    [data-sidebar-style="compact"] .nav-header .brand-logo,
+    [data-sidebar-style="mini"] .nav-header .brand-logo {
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: center; }
+    @media only screen and (max-width: 767px) {
+      .nav-header .brand-logo {
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center; } }
+  .nav-header .brand-title {
+    font-family: 'Cairo', sans-serif;
+   margin-left: 4px;
+    margin-top: 26px;
+    max-width: 140px;
+    font-size: 30px;
+    color:#217069; }
+
+ @media only screen and (max-width: 767px) {
+    .nav-header {
+        width: 15%;
+        margin-left: 15px;
+    }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #969ba0;
+  background-color: #f6f6f6;
+  background-clip: padding-box;
+  border: 1px solid #5e5e5e;
+  appearance: none;
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+  @media (prefers-reduced-motion: reduce) {
+    .form-control {
+      transition: none; } }
+  .form-control[type="file"] {
+    overflow: hidden; }
+    .form-control[type="file"]:not(:disabled):not([readonly]) {
+      cursor: pointer; }
+  .form-control:focus {
+    color: #969ba0;
+    background-color: #f6f6f6;
+    border-color: #ade7e2;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(91, 207, 197, 0.25); }
+  .form-control::-webkit-date-and-time-value {
+    height: 1.5em; }
+  .form-control::placeholder {
+    color: #6c757d;
+    opacity: 1; }
+  .form-control:disabled, .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 1; }
+  .form-control::file-selector-button {
+    padding: 0.375rem 0.75rem;
+    margin: -0.375rem -0.75rem;
+    margin-inline-end: 0.75rem;
+    color: #969ba0;
+    background-color: #e9ecef;
+    pointer-events: none;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-inline-end-width: 1px;
+    border-radius: 0;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+    @media (prefers-reduced-motion: reduce) {
+      .form-control::file-selector-button {
+        transition: none; } }
+  .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+    background-color: #dde0e3; }
+  .form-control::-webkit-file-upload-button {
+    padding: 0.375rem 0.75rem;
+    margin: -0.375rem -0.75rem;
+    margin-inline-end: 0.75rem;
+    color: #969ba0;
+    background-color: #e9ecef;
+    pointer-events: none;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-inline-end-width: 1px;
+    border-radius: 0;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
+    @media (prefers-reduced-motion: reduce) {
+      .form-control::-webkit-file-upload-button {
+        transition: none; } }
+  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+    background-color: #dde0e3; }
+
+.form-control-plaintext {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #969ba0;
+  background-color: transparent;
+  border: solid transparent;
+  border-width: 1px 0; }
+  .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
+    padding-right: 0;
+    padding-left: 0; }
+
+.form-control-sm {
+  min-height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.76563rem;
+  border-radius: 0.2rem; }
+  @media (min-width: 1200px) {
+    .form-control-sm {
+      font-size: 0.76562rem; } }
+  .form-control-sm::file-selector-button {
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
+    margin-inline-end: 0.5rem; }
+  .form-control-sm::-webkit-file-upload-button {
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
+    margin-inline-end: 0.5rem; }
+
+.form-control-lg {
+  min-height: calc(1.5em + 1rem + 2px);
+  padding: 0.5rem 1rem;
+  font-size: 1.09375rem;
+  border-radius: 0.3rem; }
+  .form-control-lg::file-selector-button {
+    padding: 0.5rem 1rem;
+    margin: -0.5rem -1rem;
+    margin-inline-end: 1rem; }
+  .form-control-lg::-webkit-file-upload-button {
+    padding: 0.5rem 1rem;
+    margin: -0.5rem -1rem;
+    margin-inline-end: 1rem; }
+
+textarea.form-control {
+  min-height: auto;
+  height: auto; }
+
+.form-control-color {
+  width: 3rem;
+  height: auto;
+  padding: 0.375rem; }
+  .form-control-color:not(:disabled):not([readonly]) {
+    cursor: pointer; }
+  .form-control-color::-moz-color-swatch {
+    height: 1.5em;
+    border-radius: 0.75rem; }
+  .form-control-color::-webkit-color-swatch {
+    height: 1.5em;
+    border-radius: 0.75rem; }
+
+
+.profile-info p {
+  color: #828690;
+  margin-bottom: 0;
+}
+.profile-info .profile-details {
+  text-align: center;
+}
+  .photo-content .cover-photo-profilo {
+  background: url(../images/cover_profilo.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 10rem;
+  width: 100%; }
+
+  .photo-content .cover-photo {
+    min-height: 10rem;}
+    
+.profile-info .profile-details {
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-between; }
+
+@media only screen and (max-width: 850px) {
+      .profile-info .profile-details {
+        justify-content: space-around; }
+      }
+
+
+  .accordion.style-1 .accordion-header.collapsed .profile-image img {
+        height: 100%;
+        width: 80px;
+    }
+
+.accordion.style-1 .accordion-header .profile-image img {
+        height: 100%;
+        width: 80px;
+    }
+
+    .accordion.style-1 .file-download span {
+      height: 36px;
+      width: 36px;
+      line-height: 28px;
+      text-align: center;
+      display: inline-block;
+      border: 2px solid #fff;
+      border-radius: 3rem;
+    }
+
+    .accordion.style-1 .accordion-header > button {
+    padding-right: 8px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    }
+
+    .accordion.style-1 .accordion-item {
+    border-bottom: 1px solid #5bcfc5;
+    margin-bottom: 0; }

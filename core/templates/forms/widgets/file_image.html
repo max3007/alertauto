@@ -1,0 +1,130 @@
+{% load static i18n %}
+<div class="border p-2 rounded">
+<div class="d-flex">
+
+    <img
+        class="img rounded mb-2"    
+         style="max-width:130px"
+        src="{% if widget.value.url %}{{ widget.value.url }} {% else %}{% static 'images/users/placeholder.png' %}{% endif %}"
+        alt="user-image">
+
+    <div
+        id="spinner"
+        class="spinner-border text-success visually-hidden visually m-5"
+        role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <table id="previewTable">
+        <thead id="columns"></thead>
+        <tbody id="previews"></tbody>
+    </table>
+</div>
+{% if widget.is_initial %}
+    {% if not widget.required %}
+        <div class="form-check custom-checkbox checkbox-danger">
+            <input
+                type="checkbox"
+                class="form-check-input"
+                id="{{ widget.checkbox_id }}"
+                name="{{ widget.checkbox_name }}{% if widget.attrs.disabled %} disabled{% endif %}">
+            <label class="form-check-label" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+        </div>
+    {% endif %}
+{% endif %}
+
+<input
+    custom-input-file
+    type="{{ widget.type }}"
+    name="{{ widget.name }}"
+    id="{{ widget.id }}"
+    accept="image/png, image/jpeg"
+    {% include "django/forms/widgets/attrs.html" %}>
+<div id="error"></div>
+
+</div>
+<script>
+    // custom input file 
+(function (global) {
+
+    var imagesPerRow = 3,
+        columns,
+        previews,
+        error;
+
+    function windowLoadHandler() {
+        global.removeEventListener("load", windowLoadHandler);
+        chooseFiles = document.querySelector('[custom-input-file]');
+        maxSize = chooseFiles.getAttribute('max_file_size');
+        console.log(maxSize)
+        error = document.getElementById("error");
+
+        table = document.getElementById("previewTable");
+        columns = document.getElementById("columns");
+        previews = document.getElementById("previews");
+
+        var row = columns.insertRow(),
+            header,
+            i;
+
+        for (i = 0; i < imagesPerRow; i += 1) {
+            header = row.insertCell();
+            header.style.width = (100 / imagesPerRow) + "%";
+        }
+
+        chooseFiles.addEventListener("change", PreviewImages, false);
+    }
+
+    function PreviewImages() {
+        if (chooseFiles.files.length > 0) {
+            const size = (chooseFiles.files[0].size / 1024 / 1024).toFixed(2);
+            error.innerHTML = ""
+            if (size > maxSize && maxSize !== null) {
+                $("#previewTable tr").remove();
+                error.innerHTML = '<b class"text-danger ms-2"> File di: ' + size + ' MB' + ' troppo grande, max ' + maxSize + ' MB' + '</b>';
+
+            } else {
+                $("#previewTable tr").remove();
+                var row;
+                console.log(chooseFiles.files)
+
+                Array.prototype.forEach.call(chooseFiles.files, function (file, index) {
+                    var cindex = index % imagesPerRow,
+                        oFReader = new FileReader(),
+                        cell,
+                        image;
+
+                    if (cindex === 0) {
+                        row = previews.insertRow(Math.ceil(index / imagesPerRow));
+                    }
+                    spinner = document.getElementById("spinner")
+                    console.log(spinner)
+                    image = document.createElement("img");
+                    image.id = "img_" + index;
+                    image.style.maxWidth = "130px";
+                    image.classList.add("rounded", "border", "shadow", "ms-2", "mb-2");
+                    spinner.classList.remove("visually-hidden");
+                    setTimeout(() => {
+                        cell = row.insertCell(cindex);
+                        //cell.innerHTML = '<b class"text-danger"">Nuova</b>';
+                        cell.appendChild(image);
+                        oFReader.addEventListener("load", function (evt) {
+                            console.log("loaded");
+                            image.src = evt.target.result;
+                            this.removeEventListener("load", windowLoadHandler);
+                        }, false);
+                        oFReader.readAsDataURL(file);
+                        spinner.classList.add("visually-hidden");
+                    }, "500")
+
+                });
+
+            }
+        } else {
+            $("#previewTable tr").remove();
+        }
+    }
+
+    global.addEventListener("load", windowLoadHandler, false);
+}(window));
+
+</script>

@@ -1,0 +1,94 @@
+<div class="col-xl-12">
+  <div class="card">
+    <div class="card-header d-sm-flex d-block border-0 pb-0">
+      <div class="me-auto mb-sm-0 mb-4">
+        <h4 class="fs-20 text-black">Documenti</h4>
+        <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span>
+      </div>
+    </div>
+    <div class="card-body pb-0 text-center">
+        {% for documento in documenti %}
+      <div class="d-flex mb-3 border-bottom justify-content-between flex-wrap align-items-center">
+        {% if documento.auto %}
+        <div class="d-flex pb-3 align-items-center">
+          <div class="me-3">
+            <p class="fs-14 mb-1">Auto</p>
+            <span class="text-black font-w500">{{documento.auto}}</span>
+          </div>
+        </div>
+        {% endif %}
+        <div class="d-flex pb-3 align-items-center">
+          <div class="me-3">
+            <p class="fs-14 mb-1">Documento</p>
+            <span class="text-black font-w500">{{documento.nome}}</span>
+          </div>
+        </div>
+        <div class="me-3 pb-3">
+          <p class="fs-14 mb-1">Scadenza</p>
+          <span class="text-black font-w500">{{documento.data_scadenza_gma}}</span>
+        </div>
+        <div class="me-3 pb-3">
+          <p class="fs-14 mb-1">Stato</p>
+          <span class="text-black font-w500">{% if documento.archiviato %}
+              <div class="">
+              <i class="fas fa-bookmark text-primary me-1"></i>
+              Archiviato
+              </div>
+              {% else %}
+              {% if documento.scaduto %}
+              <div class=""><i class="fas fa-exclamation-circle text-danger me-1"></i></i> Scaduto</div>
+              {% else %}
+              <div class=""><i class="fas fa-check-circle text-success me-1"></i> In Ordine</div>
+              {% endif %}
+              {% endif %}</span>
+        </div>
+        <div class="me-3 pb-3">
+          <p class="fs-14 mb-1">Allegato</p>
+          <span class="text-black font-w500">{% if documento.file %}
+              <a class="nav-link" href="{{documento.file.url}} " role="button" data-bs-toggle="dropdown">
+                download
+              </a>
+              {% else %}
+              NF
+              {% endif %}</span>
+        </div>
+        <div class="dropdown pb-3">
+          <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path
+                d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" style="">
+                <a href="{% url 'auto:modifica_documento_auto'  documento.pk %}"><li class="dropdown-item"><i class="fa fa-pen text-primary me-2"></i> Modifica</li></a>
+                <a href="{% url 'auto:elimina_documento_auto'  documento.pk %}"><li class="dropdown-item"><i class="fa fa-trash text-danger me-2"></i> Elimina</li></a>
+
+                <a href="{% url 'auto:documento_archiviato' documento.pk %}"><li class="dropdown-item">
+                {% if documento.archiviato %}
+                    <i class="fa fa-folder-minus text-warning me-2"></i>Togli da Archivio
+                    {% else %}
+                    <i class="fa fa-folder-plus text-success me-2"></i>Archivia
+                    {% endif %}
+                </li></a>
+                <a href="{% url 'auto:controllo_scadenza' documento.pk %}"><li class="dropdown-item">
+                    {% if documento.controllo_scadenza %}
+                    <i class="fa fa-bell-slash text-warning me-2"></i>Elimina Notifiche
+                    {% else %}
+                    <i class="fa fa-bell text-success me-2"></i>Attiva Notifiche
+                    {% endif %}
+                </li></a>
+                <a href="#"><li class="dropdown-item"><i class="fa fa-euro-sign text-info me-2"></i> Paga</li></a>
+              </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

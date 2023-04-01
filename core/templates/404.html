@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-7">
+                    <div class="form-input-content text-center error-page">
+                        <h1 class="error-text fw-bold">404</h1>
+                        <h4><i class="fa fa-exclamation-triangle text-warning"></i> Pagina Non Trovata!</h4>
+                        <p>La pagina che stai cercando non è presente.</p>
+						<div>
+                            <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--**********************************
+	Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="js/global.min.js"></script>
+<script src="js/custom.min.js"></script>
+<script src="js/dlabnav-init.js"></script>
+<script src="js/styleSwitcher.js"></script>
+
+
+
+<p>{% if exception %}{{ exception }}{% else %}This is not the page you were looking for.{% endif %}</p>
+{% endblock content %}

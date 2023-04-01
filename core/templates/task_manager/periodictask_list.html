@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Lista Task</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-responsive-md">
+        <thead>
+          <tr>
+            <th><strong>Nome</strong></th>
+            <th class="text-center"><strong>Orario</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+          <tr>
+            <td>{{task.name}}</td>
+            <td class="text-center">
+              <a href="{% url 'auto:modifica_orario_task' task.crontab.pk %}">
+                {{task.crontab}}
+              </a>
+              </td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock  %}

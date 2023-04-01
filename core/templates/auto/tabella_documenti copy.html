@@ -1,0 +1,79 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Lista Documenti</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-responsive-md text-center">
+        <thead>
+          <tr>
+            <th><strong>Auto</strong></th>
+            <th><strong>Documento</strong></th>
+            <th><strong>Data</strong></th>
+            <th><strong>Stato</strong></th>
+            <th><strong>Allegato</strong></th>
+            <th><strong></strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for documento in documenti %}
+          <tr>
+            <td>
+              <a href="{% url 'auto:auto' documento.auto.targa %}">
+                <div>{{documento.auto.marca}}</div>
+                <strong>{{documento.auto.targa}}</strong>
+              </a>
+            </td>
+            <td>
+              <div class="align-items-center"><span class="w-space-no">{{documento.nome}}</span></div>
+            </td>
+            <td>{{documento.data_scadenza_gma}}</td>
+            <td>
+              {% if documento.archiviato %}
+              <div class="">
+              <i class="fas fa-bookmark text-primary me-1"></i>
+              Archiviato
+              </div>
+              {% else %}
+              {% if documento.scaduto %}
+              <div class=""><i class="fas fa-exclamation-circle text-danger me-1"></i></i> Scaduto</div>
+              {% else %}
+              <div class=""><i class="fas fa-check-circle text-success me-1"></i> In Ordine</div>
+              {% endif %}
+              {% endif %}
+            </td>
+            <td class="text-center">
+              {% if documento.file %}
+              <a class="nav-link" href="{{documento.file.url}} " role="button" data-bs-toggle="dropdown">
+                download
+              </a>
+              {% else %}
+              NF
+              {% endif %}
+            </td>
+            <td>
+              <button type="button" class="btn btn-success light sharp" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect x="0" y="0" width="24" height="24"></rect>
+                    <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                    <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                    <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                  </g>
+                </svg>
+              </button>
+              <div class="dropdown-menu" style="">
+                <a href="{% url 'auto:modifica_documento_auto'  documento.pk %}"><li class="dropdown-item"><i class="fa fa-pen text-primary me-2"></i> Modifica</li></a>
+                <a href="{% url 'auto:elimina_documento_auto'  documento.pk %}"><li class="dropdown-item"><i class="fa fa-trash text-danger me-2"></i> Modifica</li></a>
+                {% if documento.archiviato == False %}
+                <a href="{% url 'auto:documento_pagato' documento.pk %}"><li class="dropdown-item"><i class="fa fa-euro-sign text-success me-2"></i> Segna come pagato</li></a>
+                  {% endif %}
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

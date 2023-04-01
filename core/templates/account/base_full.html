@@ -1,0 +1,32 @@
+{% extends "base_full.html" %}
+{% load static i18n %}
+
+{% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
+
+{% block content %}
+<div class="container h-100">
+  <div class="row justify-content-center h-100 align-items-center">
+    <div class="col-md-6">
+      <div class="authincation-content">
+        <div class="row no-gutters">
+          <div class="col-xl-12">
+            <div class="auth-form">
+              <div class="text-center mb-3">
+                <a href="{% url 'home' %}"><img width="60" height="40" src="{% static 'images/logoauto.png' %}"
+                    alt=""></a>
+              </div>
+
+              {% block inner %}
+
+              {% endblock %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

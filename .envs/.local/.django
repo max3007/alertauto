@@ -1,0 +1,28 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# Celery
+# ------------------------------------------------------------------------------
+
+# Flower
+CELERY_FLOWER_USER=wHFuxzklykYGCEhNZYcECGEzTAObypkc
+CELERY_FLOWER_PASSWORD=oT67LrjzM6Pwvg8DqqFIS42RlWLsXbVWI39QsQipMAWknGwMEFsKssCT2fPg8rJr
+
+DJANGO_AWS_ACCESS_KEY_ID="AKIAUVFJS3S5ULWDITJV"
+DJANGO_AWS_SECRET_ACCESS_KEY="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"
+DJANGO_AWS_STORAGE_BUCKET_NAME="alertauto-pubblico"
+DJANGO_AWS_S3_REGION_NAME="eu-central-1"
+
+DJANGO_AWS_PRIVATE_MEDIA_LOCATION="private"
+DJANGO_AWS_PRIVATE_BUCKET_NAME="2m-private-bucket"
+
+DJANGO_AWS_PUBLIC_MEDIA_LOCATION="media"
+DJANGO_AWS_PUBLIC_BUCKET_NAME="alertauto-pubblico"
+
+DJANGO_ACCOUNT_ALLOW_REGISTRATION='True'
+DJANGO_ACCOUNT_EMAIL_VERIFICATION='mandatory'

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="card-body pt-0">
+  <form method="post">{% csrf_token %}
+    {{ form }}
+    <div class="mt-3 d-grid d-flex">
+      <button class="btn btn-danger waves-effect waves-light" type="submit">Elimina</button>
+      <a href="{{request.META.HTTP_REFERER}}" type="submit" class="btn btn-primary ms-2">Annulla</a>
+    </div>
+  </form>
+
+</div>
+{% endblock %}

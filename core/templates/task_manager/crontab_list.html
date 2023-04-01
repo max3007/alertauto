@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Lista Task</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-responsive-md">
+        <thead>
+          <tr>
+            <th style="width:50px;">
+              <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                <input type="checkbox" class="form-check-input" id="checkAll" required="">
+                <label class="form-check-label" for="checkAll"></label>
+              </div>
+            </th>
+            <th><strong>NO.</strong></th>
+            <th><strong>NO.</strong></th>
+            <th><strong>NO.</strong></th>
+            <th><strong>NO.</strong></th>
+            <th><strong>NO.</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for crontab in crontabs %}
+          <tr>
+            <td>{{crontab.id}}</td>
+            <td>{{crontab.minute}}</td>
+            <td>{{crontab.hour}}</td>
+            <td>{{crontab.day_of_week}}</td>
+            <td>{{crontab.day_of_month}}</td>
+            <td>{{crontab.month_of_year}}</td>
+            <td>
+                <a class="dropdown-item" href="{% url 'task_manager:modifica_crontab' crontab.id  %}">Edit</a>
+            </td>
+                
+
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock  %}

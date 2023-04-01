@@ -1,0 +1,22 @@
+{% extends "base_full.html" %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block content %}
+<div class="authincation h-100">
+  <div class="container h-100">
+    <div class="row justify-content-center h-100 align-items-center">
+      <div class="col-md-7">
+        <div class="form-input-content text-center error-page">
+          <h2 class="error-text fw-bold">Ooops!!! 500</h2>
+          <h4><i class="fa  fa-grin-beam-sweat text-warning"></i> Qualcosa non ha funzionato!</h4>
+          <p>Errore registrato e comunicato.</p>
+          <div>
+            <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
